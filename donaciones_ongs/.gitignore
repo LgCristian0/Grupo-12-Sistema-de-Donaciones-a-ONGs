@@ -1,0 +1,19 @@
+# Entorno virtual
+env/
+
+# Archivos Python
+*.pyc
+__pycache__/
+
+# Base de datos (si usas SQLite)
+*.sqlite3
+db.sqlite3
+
+# Configuraciones del entorno
+*.env
+
+# Archivos de usuario del sistema
+.DS_Store
+
+# Archivos de migración innecesarios (opcional)
+*/migrations/__pycache__/

@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<h1>Campañas</h1>
+
+<h2>Campañas Activas</h2>
+<ul>
+  {% for campaña in campañas %}
+    <li>{{ campaña.nombre }} - Meta: {{ campaña.meta }}</li>
+
+  {% empty %}
+    <li>No hay campañas activas en este momento.</li>
+
+  {% endfor %}
+
+  {% if form.errors %}
+  <div style="color: red;">
+
+    <ul>
+
+      {% for field in form %}
+        {% for error in field.errors %}
+
+          <li>{{ field.label }}: {{ error }}</li>
+        {% endfor %}
+
+      {% endfor %}
+
+      {% for error in form.non_field_errors %}
+
+        <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
+</ul>
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+<!-- Usamos la plantilla base -->
+
+{% block content %}
+
+  <h2>Confirmar eliminación</h2>
+
+  <p>¿Estás seguro de que deseas eliminar la donación de <strong>{{ donacion.donante }}</strong>?</p>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <button type="submit">Sí, eliminar</button>
+
+    <a href="{% url 'historial_donaciones' %}">Cancelar</a>
+  </form>
+
+{% endblock %}
+<!-- Terminamos el bloque de contenido -->

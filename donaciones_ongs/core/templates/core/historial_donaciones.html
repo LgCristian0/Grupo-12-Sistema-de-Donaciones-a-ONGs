@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h1>Historial de Donaciones</h1>
+
+<!-- Aquí comenzamos la tabla donde se mostrará cada donación -->
+<table>
+    <thead>
+        <tr>
+            <!-- Encabezados de la tabla -->
+            <th>Donante</th>
+            <th>Campaña</th>
+            <th>Monto</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for donacion in donaciones %}
+        <tr>
+            <td>{{ donacion.donante.nombre }}</td>
+        
+            <td>{{ donacion.campaña.nombre }}</td>
+            
+            <td>{{ donacion.monto }}</td>
+            
+            <td>{{ donacion.fecha }}</td>
+            
+            <td>
+               <!-- Enlaces para editar y eliminar -->
+               <a href="{% url 'editar_donacion' donacion.id %}">Editar</a> |
+               <a href="{% url 'eliminar_donacion' donacion.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <!-- Este bloque se muestra si no hay donaciones -->
+        <tr>
+            <td colspan="4">No hay donaciones registradas.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h2> HOME </h2>
+
+{% if request.user.is_authenticated %}
+
+    <h3>{{ user.username }} Bienvenido!! </h3>
+
+{% else %}
+
+    Bienvenidos a nuestro proyecto<br />
+    sobre el tema de "Sistemas de Donaciones a ONGs"
+
+{% endif %}
+
+{% endblock %}
+
